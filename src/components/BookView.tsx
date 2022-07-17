@@ -7,10 +7,17 @@ import { Image } from "./BookItem";
 const Container = styled.div`
 display: flex;
 min-height: 100%;
+@media (max-width: 1000px) {
+    display: block;
+}
 `
 const BookIMGBar = styled.div`
 width: 40%;
 min-height: 100%;
+@media (max-width: 1000px) {
+    height: 500px;
+    width: 100%;
+}
 align-self: stretch;
 display: flex;
 justify-content: center;

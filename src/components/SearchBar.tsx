@@ -17,6 +17,9 @@ height: 220px;
 color: white;
 `
 const Options = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
 margin-top: 5px;
 font-size: 18px;
 `
@@ -25,6 +28,8 @@ border: solid grey 1px;
 display: flex;
 align-items: center;
 background-color: white;
+width: 60%;
+max-width: 480px;
 `
 const LoupeIMG = styled.img`
 wigth: 20px;
@@ -36,7 +41,8 @@ margin: 5px;
 const SearchInput = styled.input`
 height: 30px;
 border: none;
-width: 500px;
+width: 100%;
+max-width: 500px;
 font-size: 20px;
 font-weight: 500;
 padding: 5px;
@@ -73,31 +79,33 @@ export function SearchBar({ onKeyDown, onPressFind }: ISearchBar) {
 
     return (
         <SearchContainer url={backgroundIMG} >
-            <div>
-                <Header>
-                    Search for books
-                </Header>
-                <Search>
-                    <SearchInput
-                        type="text"
-                        value={book}
-                        onChange={(e) => dispatch(written(e.target.value))}
-                        onKeyDown={onKeyDown}
-                    />
-                    <LoupeIMG src={SearchSVG} onClick={onPressFind} />
-                </Search>
-            </div>
+            <Header>
+                Search for books
+            </Header>
+            <Search>
+                <SearchInput
+                    type="text"
+                    value={book}
+                    onChange={(e) => dispatch(written(e.target.value))}
+                    onKeyDown={onKeyDown}
+                />
+                <LoupeIMG src={SearchSVG} onClick={onPressFind} />
+            </Search>
 
             <Options>
-                Categories
-                <Selector name="" id="" onChange={e => dispatch(changed(e.target.value))}>
-                    {categories.map(item => <option key={item}>{item}</option>)}
-                </Selector>
-                Sotring by
-                <Selector name="" id="" onChange={e => dispatch(sorted(e.target.value))}>
-                    <option value="relevance">relevance</option>
-                    <option value="newest">newest</option>
-                </Selector>
+                <div>
+                    Categories
+                    <Selector name="" id="" onChange={e => dispatch(changed(e.target.value))}>
+                        {categories.map(item => <option key={item}>{item}</option>)}
+                    </Selector>
+                </div>
+                <div>
+                    Sotring by
+                    <Selector name="" id="" onChange={e => dispatch(sorted(e.target.value))}>
+                        <option value="relevance">relevance</option>
+                        <option value="newest">newest</option>
+                    </Selector>
+                </div>
             </Options>
         </SearchContainer>
     )
