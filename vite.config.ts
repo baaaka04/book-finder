@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react(),
   svgr()
   ],
-  base: '/book_search/'
+  base: '/book-finder/'
 })
