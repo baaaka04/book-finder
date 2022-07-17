@@ -51,7 +51,7 @@ function App() {
         console.log(data) //response
         setTotalItemsNumber(data.totalItems)
         setBookItems([...fetchedBooks])
-        navigate("../book_search/")
+        navigate("../book-finder/")
         setIsLoading(false)
       })
       .catch(err => console.error(err))
@@ -78,14 +78,12 @@ function App() {
 
   return (
     <>
-      <button onClick={() => console.log(maxResult)}>maxResult</button>
-      <button onClick={() => console.log(count)}>count</button>
       <SearchBar
         onKeyDown={onKeyDown}
         onPressFind={onPressFind}
       />
       <Routes>
-        <Route path="/book_search/" element={<BooksSpace
+        <Route path="/book-finder/" element={<BooksSpace
           books={bookItems}
           totalItemsNumber={totalItemsNumber}
           addBooks={addBooks}
@@ -93,7 +91,7 @@ function App() {
           hasMoreBooks={hasMoreBooks}
         />} />
 
-        <Route path="/book_search/book/:bookId" element={<BookView />} />
+        <Route path="/book-finder/book/:bookId" element={<BookView />} />
       </Routes>
       {isLoading ? <Loading /> : null}
     </>

@@ -74,7 +74,7 @@ export function BookItem({ bookData }: IBookItem) {
     const authors = (bookData.volumeInfo?.authors || ['Author is not specified']).join(', ')
     return (
         <BookCard>
-            <StyledLink to={`/book_search/book/${bookData.id}`}>
+            <StyledLink to={`/book-finder/book/${bookData.id}`}>
                 <BookImgContainer>
                     <Image url={img}>{img ? null : 'PICTURE NOT FOUND'}</Image>
                 </BookImgContainer>
