@@ -77,7 +77,6 @@ export function BookView() {
         fetch(`https://www.googleapis.com/books/v1/volumes/${bookId}?key=AIzaSyAbjV7r8dnRKfkLQ2Ivt_r2zw1dPcxj5cU`)
             .then(resp => resp.json())
             .then(data => {
-                console.log(data.volumeInfo)
                 setBookInfo({ ...data.volumeInfo })
                 setIsLoading(false)
             })

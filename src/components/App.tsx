@@ -27,8 +27,6 @@ function App() {
   function getBooks() {
     const url = 'https://www.googleapis.com/books/v1/';
     const cat = category === 'all' ? '' : category;
-    console.log('count+30=', count + 30);
-    console.log('totalItemsNumber=', totalItemsNumber);
     if (!!totalItemsNumber && count + 30 >= totalItemsNumber) {
       maxResult = totalItemsNumber - count
       setHasMoreBooks(false)
@@ -40,7 +38,6 @@ function App() {
       '&startIndex=' + count +
       '&maxResults=' + maxResult
     setIsLoading(true)
-    console.log(reqURL) // request
 
     fetch(reqURL)
       .then(resp => resp.json())
@@ -48,7 +45,6 @@ function App() {
         if (!!data.totalItems) {
           fetchedBooks = [...fetchedBooks, ...data.items]
         }
-        console.log(data) //response
         setTotalItemsNumber(data.totalItems)
         setBookItems([...fetchedBooks])
         navigate("../book-finder/")
