@@ -6,14 +6,13 @@ import { Image } from "./BookItem";
 
 const Container = styled.div`
 display: flex;
-min-height: 100%;
+flex-grow:1;
 @media (max-width: 1000px) {
     display: block;
 }
 `
 const BookIMGBar = styled.div`
 width: 40%;
-min-height: 100%;
 @media (max-width: 1000px) {
     height: 500px;
     width: 100%;
@@ -26,7 +25,9 @@ background-color: #f2f1f0;
 `
 const InfoBar = styled.div`
 width: 60%;
-min-height: 100%;
+@media (max-width: 1000px) {
+    width: 80%;
+}
 padding: 40px 50px 20px;
 `
 const ImageLarge = styled(Image)`
