@@ -104,7 +104,7 @@ export function BookView() {
                         <Category>{category}</Category>
                         <Title>{title}</Title>
                         <Authors>{authors}</Authors>
-                        <Description>{description}</Description>
+                        <Description dangerouslySetInnerHTML={{ __html: description }} />
                     </InfoBar>
 
                 </Container>
