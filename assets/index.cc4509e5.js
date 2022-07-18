@@ -149,13 +149,12 @@ top: 0px;
 background-color: rgba(108, 117, 125, 0.3);
 `;function Lp(){return B(Sy,{children:B("img",{src:wy,alt:"Loading..."})})}const ky=b.div`
 display: flex;
-min-height: 100%;
+flex-grow:1;
 @media (max-width: 1000px) {
     display: block;
 }
 `,xy=b.div`
 width: 40%;
-min-height: 100%;
 @media (max-width: 1000px) {
     height: 500px;
     width: 100%;
@@ -167,7 +166,9 @@ align-items: start;
 background-color: #f2f1f0;
 `,Cy=b.div`
 width: 60%;
-min-height: 100%;
+@media (max-width: 1000px) {
+    width: 80%;
+}
 padding: 40px 50px 20px;
 `,Ey=b(Ip)`
 width: 300px;
@@ -192,7 +193,7 @@ border: solid grey 1px;
 padding: 15px;
 min-height: 230px;
 margin-bottom: 30px;
-`;function Ny(){var f,h,p;const{bookId:e}=Wv(),[t,n]=A.exports.useState({}),[r,o]=A.exports.useState(!1),i=(f=t.imageLinks)==null?void 0:f.thumbnail,l=(p=(h=t.categories)==null?void 0:h[0])!=null?p:"Other",u=t.title||"Unnamed",a=t.description||"",s=(t.authors||["Author is not specified"]).join(", ");return A.exports.useEffect(()=>{o(!0),fetch(`https://www.googleapis.com/books/v1/volumes/${e}?key=AIzaSyAbjV7r8dnRKfkLQ2Ivt_r2zw1dPcxj5cU`).then(v=>v.json()).then(v=>{n({...v.volumeInfo}),o(!1)}).catch(v=>console.error(v))},[e]),B(ss,{children:r?B(Lp,{}):Ge(ky,{children:[B(xy,{children:B(Ey,{url:i,children:i?null:"PICTURE NOT FOUND"})}),Ge(Cy,{children:[B(Py,{children:l}),B(_y,{children:u}),B(Oy,{children:s}),B($y,{children:a})]})]})})}var jp={exports:{}},Mp={};/**
+`;function Ny(){var f,h,p;const{bookId:e}=Wv(),[t,n]=A.exports.useState({}),[r,o]=A.exports.useState(!1),i=(f=t.imageLinks)==null?void 0:f.thumbnail,l=(p=(h=t.categories)==null?void 0:h[0])!=null?p:"Other",u=t.title||"Unnamed",a=t.description||"",s=(t.authors||["Author is not specified"]).join(", ");return A.exports.useEffect(()=>{o(!0),fetch(`https://www.googleapis.com/books/v1/volumes/${e}?key=AIzaSyAbjV7r8dnRKfkLQ2Ivt_r2zw1dPcxj5cU`).then(v=>v.json()).then(v=>{n({...v.volumeInfo}),o(!1)}).catch(v=>console.error(v))},[e]),B(ss,{children:r?B(Lp,{}):Ge(ky,{children:[B(xy,{children:B(Ey,{url:i,children:i?null:"PICTURE NOT FOUND"})}),Ge(Cy,{children:[B(Py,{children:l}),B(_y,{children:u}),B(Oy,{children:s}),B($y,{dangerouslySetInnerHTML:{__html:a}})]})]})})}var jp={exports:{}},Mp={};/**
  * @license React
  * use-sync-external-store-shim.production.min.js
  *
